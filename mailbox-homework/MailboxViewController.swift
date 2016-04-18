@@ -68,14 +68,21 @@ class MailboxViewController: UIViewController, UIScrollViewDelegate {
             messageView.center = CGPoint(x: messageOriginalCenter.x + translation.x, y: messageOriginalCenter.y)
             print("messageView.center Changed After: \(messageView.center)")
             
-            if messageOriginalCenter.x + translation.x < 100 && messageOriginalCenter.x + translation.x > 50 {
-                print("Between 100 and 50!!!!!!!!!!!!!!!")
+            if translation.x <= -60 && translation.x >= -240 {
+                print("Between -60 and -240!")
                 laterView.backgroundColor = UIColor.yellowColor()
                 laterIcon.backgroundColor = UIColor.yellowColor()
                 laterIcon.center = messageView.center 
-            } else if messageOriginalCenter.x + translation.x < 50 {
-                print("Less than 50!!!!!!!!!!!!!!!")
-//            } else if messageOriginalCenter.x + translation.x 
+            } else if translation.x < -240 {
+                print("Less than -240")
+            } else if translation.x >= -60 && translation.x <= -240 {
+                print(">= -60 AND <= -240")
+            } else if translation.x > 240 {
+                print("> 240")
+            } else {
+                print("idk")
+            }
+            
             
             
             
@@ -84,6 +91,19 @@ class MailboxViewController: UIViewController, UIScrollViewDelegate {
             print("messageView.center Ended: \(messageView.center)")
 
             laterIcon.alpha = 1.0
+            
+            if translation.x <= -60 && translation.x >= -240 {
+                print("ended <=-60 && >= -240")
+            } else if translation.x < -240 {
+                print("ended less than -240")
+            } else if translation.x >= 60 && translation.x <= 240 {
+                ("ended >= -60 AND <= -240")
+            } else if translation.x > 240 {
+                print("ended > 240")
+            } else {
+                print("do something")
+            }
+            
         }
     }
     
